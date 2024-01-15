@@ -6,7 +6,7 @@ package com.mycompany.cliveterinariahugo;
 
 /**
  *
- * @author Equipo
+ * @author Hugo Martín Morales DAM2B
  */
 public class CliVeterinariaHugo {
 
