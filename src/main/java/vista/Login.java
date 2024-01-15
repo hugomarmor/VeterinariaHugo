@@ -6,6 +6,8 @@ package vista;
 
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
 import java.awt.Color;
+import javax.swing.JOptionPane;
+import modelo.ConexionBD;
 
 /**
  *
@@ -127,7 +129,6 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(reccontra, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 700, 130, 40));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/nombrejpg.jpg"))); // NOI18N
-        jLabel3.setPreferredSize(new java.awt.Dimension(350, 95));
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 250, -1, -1));
 
         registro.setBackground(new java.awt.Color(160, 30, 250));
@@ -193,6 +194,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_contraMousePressed
 
     private void reccontraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reccontraActionPerformed
+        //acceder al recuperar contraseña
         dispose();
         Reccontra contraFrame = new Reccontra();
         contraFrame.setVisible(true);
@@ -200,16 +202,25 @@ public class Login extends javax.swing.JFrame {
 
     private void registroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroActionPerformed
         // TODO add your handling code here:
-        // Cierra el JFrame actual (Login)
         dispose();
-
-        // Abre el nuevo JFrame de Registro
+        //abre el nuevo JFrame de Registro
         Registro registroFrame = new Registro();
         registroFrame.setVisible(true);
     }//GEN-LAST:event_registroActionPerformed
 
     private void accederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accederActionPerformed
         // TODO add your handling code here:
+        String nombreUsuario = nombre.getText();
+        String password = contra.getText();
+    //acceder al inicio de la app
+    if (ConexionBD.verificarCredenciales(nombreUsuario, password)) {
+        dispose();
+        Principal principalFrame = new Principal();
+        principalFrame.setVisible(true);
+    } else {
+        //mensaje error
+        JOptionPane.showMessageDialog(null, "Error al intentar iniciar sesión", "Error", JOptionPane.ERROR_MESSAGE);
+    }
     }//GEN-LAST:event_accederActionPerformed
 
     /**

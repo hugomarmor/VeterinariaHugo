@@ -4,9 +4,12 @@
  */
 package vista;
 
+import javax.swing.JOptionPane;
+import modelo.UsuarioNue;
+
 /**
  *
- * @author Equipo
+ * @author Hugo Martín Morales DAM2B
  */
 public class Registro extends javax.swing.JFrame {
     int xMouse, yMouse;
@@ -35,6 +38,7 @@ public class Registro extends javax.swing.JFrame {
         nombre = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         contra = new javax.swing.JTextField();
+        registrar = new javax.swing.JButton();
         login = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -105,6 +109,17 @@ public class Registro extends javax.swing.JFrame {
         });
         jPanel1.add(contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 550, 300, 40));
 
+        registrar.setBackground(new java.awt.Color(160, 30, 250));
+        registrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        registrar.setForeground(new java.awt.Color(255, 255, 255));
+        registrar.setText("Registrar");
+        registrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 610, 120, 40));
+
         login.setBackground(new java.awt.Color(160, 30, 250));
         login.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         login.setForeground(new java.awt.Color(255, 255, 255));
@@ -165,6 +180,26 @@ public class Registro extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_contraMousePressed
 
+    private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
+        // TODO add your handling code here:
+        //obtener los datos del formulario
+        String nombreUsuario = nombre.getText();
+        String contrasena = contra.getText();
+
+        //crear una instancia del Usuarionuevo
+        UsuarioNue usuarioDAO = new UsuarioNue();
+
+        //intenta registrar el nuevo usuario
+        if (usuarioDAO.registrarUsuario(nombreUsuario, contrasena)) {
+            //registro exitoso
+            JOptionPane.showMessageDialog(null, "Usuario registrado correctamente!");
+        } else {
+            //hubo un error en el registro
+            JOptionPane.showMessageDialog(null, "Error al intentar iniciar sesión", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_registrarActionPerformed
+
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         // TODO add your handling code here:
         dispose(); 
@@ -218,5 +253,6 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton login;
     private javax.swing.JTextField nombre;
+    private javax.swing.JButton registrar;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,9 +4,14 @@
  */
 package vista;
 
+import controlador.EmailUtil;
+import java.security.SecureRandom;
+import java.util.Properties;
+import modelo.ConexionBD;
+
 /**
  *
- * @author Equipo
+ * @author Hugo Martín Morales DAM2B
  */
 public class Reccontra extends javax.swing.JFrame {
 
@@ -30,9 +35,10 @@ public class Reccontra extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        login = new javax.swing.JButton();
+        mancorreo = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         correo = new javax.swing.JTextField();
+        login = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Recuperar contraseña");
@@ -52,16 +58,16 @@ public class Reccontra extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/nombrejpg.jpg"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 250, -1, -1));
 
-        login.setBackground(new java.awt.Color(160, 30, 250));
-        login.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        login.setForeground(new java.awt.Color(255, 255, 255));
-        login.setText("Login");
-        login.addActionListener(new java.awt.event.ActionListener() {
+        mancorreo.setBackground(new java.awt.Color(160, 30, 250));
+        mancorreo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        mancorreo.setForeground(new java.awt.Color(255, 255, 255));
+        mancorreo.setText("Correo");
+        mancorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginActionPerformed(evt);
+                mancorreoActionPerformed(evt);
             }
         });
-        jPanel1.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 700, 120, 40));
+        jPanel1.add(mancorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 480, 120, 40));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setText("Correo (Rec.Contra)");
@@ -76,17 +82,89 @@ public class Reccontra extends javax.swing.JFrame {
         });
         jPanel1.add(correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 410, 300, 40));
 
+        login.setBackground(new java.awt.Color(160, 30, 250));
+        login.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        login.setForeground(new java.awt.Color(255, 255, 255));
+        login.setText("Login");
+        login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginActionPerformed(evt);
+            }
+        });
+        jPanel1.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 700, 120, 40));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 770));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        // TODO add your handling code here:
-        dispose();
-        Login loginFrame = new Login();
-        loginFrame.setVisible(true);
-    }//GEN-LAST:event_loginActionPerformed
+    private void mancorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mancorreoActionPerformed
+        //ESTA ES LA LOGICA DEL CORREO, PERO COMO NO ME VA HIBERNATE NO SE SI FUNCIONA...
+        /*final String fromEmail = "hugomartinmorales729@gmail.com";
+        final String password = "losqrgkgsmxgfgqf";
+        final String toEmail = "hugo.marmor@educa.jcyl.es";
+
+    try {
+        //para generar nueva contraseña
+        String nuevaContraseña = generarNuevaContraseña();
+
+        //actualizar la contraseña en la base de datos
+        actualizarContraseñaEnBaseDeDatos(toEmail, nuevaContraseña);
+
+        //enviar el correo electrónico con la nueva contraseña
+        sendEmailWithNewPassword(toEmail, nuevaContraseña, fromEmail, password);
+
+        //mensaje de éxito o redirección a una nueva ventana
+        System.out.println("Se ha enviado una nueva contraseña por correo electrónico.");
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        System.out.println("Error");
+    }
+}   
+
+    private String generarNuevaContraseña() {
+         int longitudContraseña = 12;
+
+        //caracteres permitidos para la contraseña
+        String caracteresPermitidos = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        //aleatorio
+        SecureRandom random = new SecureRandom();
+
+        //crear la nueva contraseña
+        StringBuilder nuevaContraseña = new StringBuilder();
+        for (int i = 0; i < longitudContraseña; i++) {
+            int indice = random.nextInt(caracteresPermitidos.length());
+            nuevaContraseña.append(caracteresPermitidos.charAt(indice));
+        }
+
+        //delvover la contra
+        return nuevaContraseña.toString();
+    }
+
+    private void actualizarContraseñaEnBaseDeDatos(String email, String nuevaContraseña) {
+        //lógica para actualizar la contraseña en la base de datos
+        //falta el metodo verificarCredenciales en la clase ConexionBD
+        ConexionBD.actualizarContraseña(email, nuevaContraseña);
+    }
+
+    private void sendEmailWithNewPassword(String toEmail, String nuevaContraseña, String fromEmail, String password) {
+        Properties props = new Properties();
+        //configuración del servidor de correo electrónico
+
+        Session session = Session.getDefaultInstance(props, new Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(fromEmail, password);
+            }
+        });
+
+        String subject = "Recuperación de Contraseña";
+        String body = "Tu nueva contraseña es: " + nuevaContraseña;
+
+        //envío del correo electrónico
+        EmailUtil.sendEmail(session, toEmail, subject, body, fromEmail, password);*/
+    }//GEN-LAST:event_mancorreoActionPerformed
 
     private void correoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_correoMousePressed
         // TODO add your handling code here:
@@ -94,6 +172,14 @@ public class Reccontra extends javax.swing.JFrame {
             correo.setText("");
         }
     }//GEN-LAST:event_correoMousePressed
+
+    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+        // TODO add your handling code here:
+        //cambiar al login
+        dispose();
+        Login loginFrame = new Login();
+        loginFrame.setVisible(true);
+    }//GEN-LAST:event_loginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,5 +224,6 @@ public class Reccontra extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton login;
+    private javax.swing.JButton mancorreo;
     // End of variables declaration//GEN-END:variables
 }
