@@ -2,16 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package modelo;
+package modelo.entidades;
 
 import java.sql.Date;
 
 /**
  *
- * @author Hugo Martín Morales DAM2B
+ * @author HUGO MARTÍN MORALES DAM2B
  */
 //@Entity
 public class Mascotas {
+    //clase MASCOTAS
     //@Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_mascota;
@@ -29,7 +30,7 @@ public class Mascotas {
     private String raza;
     private Date fecha_nacimiento;
 
-    // Getters y setters
+    //Getters y setters
     public int getId_mascota() {
         return id_mascota;
     }

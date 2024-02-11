@@ -2,14 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package modelo;
+package modelo.entidades;
 
 /**
  *
- * @author Hugo Martín Morales DAM2B
+ * @author HUGO MARTÍN MORALES DAM2B
  */
 //@Entity
 public class Usuarios {
+    //clase USUARIOS
     //@Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_trabajador;
@@ -19,7 +20,7 @@ public class Usuarios {
     private String email_trabajador;
     private String rol;
 
-    // Getters y setters
+    //Getters y setters
     public int getId_trabajador() {
         return id_trabajador;
     }

@@ -4,14 +4,13 @@
  */
 package vista;
 
-import controlador.EmailUtil;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
 import java.security.SecureRandom;
 import java.util.Properties;
-import modelo.ConexionBD;
 
 /**
  *
- * @author Hugo Martín Morales DAM2B
+ * @author HUGO MARTÍN MORALES DAM2B DAM2B
  */
 public class Reccontra extends javax.swing.JFrame {
 
@@ -59,9 +58,10 @@ public class Reccontra extends javax.swing.JFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 250, -1, -1));
 
         mancorreo.setBackground(new java.awt.Color(160, 30, 250));
-        mancorreo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        mancorreo.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         mancorreo.setForeground(new java.awt.Color(255, 255, 255));
         mancorreo.setText("Correo");
+        mancorreo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mancorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mancorreoActionPerformed(evt);
@@ -69,7 +69,7 @@ public class Reccontra extends javax.swing.JFrame {
         });
         jPanel1.add(mancorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 480, 120, 40));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         jLabel5.setText("Correo (Rec.Contra)");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 420, 180, 30));
 
@@ -86,6 +86,7 @@ public class Reccontra extends javax.swing.JFrame {
         login.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         login.setForeground(new java.awt.Color(255, 255, 255));
         login.setText("Login");
+        login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginActionPerformed(evt);
@@ -99,78 +100,12 @@ public class Reccontra extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mancorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mancorreoActionPerformed
-        //ESTA ES LA LOGICA DEL CORREO, PERO COMO NO ME VA HIBERNATE NO SE SI FUNCIONA...
-        /*final String fromEmail = "hugomartinmorales729@gmail.com";
-        final String password = "losqrgkgsmxgfgqf";
-        final String toEmail = "hugo.marmor@educa.jcyl.es";
-
-    try {
-        //para generar nueva contraseña
-        String nuevaContraseña = generarNuevaContraseña();
-
-        //actualizar la contraseña en la base de datos
-        actualizarContraseñaEnBaseDeDatos(toEmail, nuevaContraseña);
-
-        //enviar el correo electrónico con la nueva contraseña
-        sendEmailWithNewPassword(toEmail, nuevaContraseña, fromEmail, password);
-
-        //mensaje de éxito o redirección a una nueva ventana
-        System.out.println("Se ha enviado una nueva contraseña por correo electrónico.");
-
-    } catch (Exception e) {
-        e.printStackTrace();
-        System.out.println("Error");
-    }
-}   
-
-    private String generarNuevaContraseña() {
-         int longitudContraseña = 12;
-
-        //caracteres permitidos para la contraseña
-        String caracteresPermitidos = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-        //aleatorio
-        SecureRandom random = new SecureRandom();
-
-        //crear la nueva contraseña
-        StringBuilder nuevaContraseña = new StringBuilder();
-        for (int i = 0; i < longitudContraseña; i++) {
-            int indice = random.nextInt(caracteresPermitidos.length());
-            nuevaContraseña.append(caracteresPermitidos.charAt(indice));
-        }
-
-        //delvover la contra
-        return nuevaContraseña.toString();
-    }
-
-    private void actualizarContraseñaEnBaseDeDatos(String email, String nuevaContraseña) {
-        //lógica para actualizar la contraseña en la base de datos
-        //falta el metodo verificarCredenciales en la clase ConexionBD
-        ConexionBD.actualizarContraseña(email, nuevaContraseña);
-    }
-
-    private void sendEmailWithNewPassword(String toEmail, String nuevaContraseña, String fromEmail, String password) {
-        Properties props = new Properties();
-        //configuración del servidor de correo electrónico
-
-        Session session = Session.getDefaultInstance(props, new Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(fromEmail, password);
-            }
-        });
-
-        String subject = "Recuperación de Contraseña";
-        String body = "Tu nueva contraseña es: " + nuevaContraseña;
-
-        //envío del correo electrónico
-        EmailUtil.sendEmail(session, toEmail, subject, body, fromEmail, password);*/
+       
     }//GEN-LAST:event_mancorreoActionPerformed
 
     private void correoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_correoMousePressed
         // TODO add your handling code here:
-        if(correo.getText().equals("email@dominio.es")){
-            correo.setText("");
-        }
+       
     }//GEN-LAST:event_correoMousePressed
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
@@ -186,27 +121,7 @@ public class Reccontra extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Reccontra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Reccontra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Reccontra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Reccontra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+        FlatMaterialPalenightIJTheme.setup();
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

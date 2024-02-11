@@ -2,18 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package modelo;
+package modelo.entidades;
 
 import java.sql.Date;
 import java.sql.Time;
 
 /**
  *
- * @author Hugo Martín Morales DAM2B
+ * @author HUGO MARTÍN MORALES DAM2B
  */
 //@Entity
 //@Table(name = "Citas")
 public class Citas {
+    //clase CITAS
     //@Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     //@Column(name = "id_cita")

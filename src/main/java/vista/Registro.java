@@ -4,12 +4,13 @@
  */
 package vista;
 
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
 import javax.swing.JOptionPane;
-import modelo.UsuarioNue;
+
 
 /**
  *
- * @author Hugo Martín Morales DAM2B
+ * @author HUGO MARTÍN MORALES DAM2B DAM2B
  */
 public class Registro extends javax.swing.JFrame {
     int xMouse, yMouse;
@@ -40,6 +41,8 @@ public class Registro extends javax.swing.JFrame {
         contra = new javax.swing.JTextField();
         registrar = new javax.swing.JButton();
         login = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        contra1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registro");
@@ -83,7 +86,7 @@ public class Registro extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/nombrejpg.jpg"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 250, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         jLabel5.setText("Usuario Nuevo");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 420, 130, 30));
 
@@ -96,9 +99,9 @@ public class Registro extends javax.swing.JFrame {
         });
         jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 410, 300, 40));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel6.setText("Contraseña");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 550, 100, 40));
+        jLabel6.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel6.setText("Rep. Contraseña");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 550, 150, 40));
 
         contra.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         contra.setForeground(new java.awt.Color(160, 30, 250));
@@ -107,12 +110,13 @@ public class Registro extends javax.swing.JFrame {
                 contraMousePressed(evt);
             }
         });
-        jPanel1.add(contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 550, 300, 40));
+        jPanel1.add(contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 480, 300, 40));
 
         registrar.setBackground(new java.awt.Color(160, 30, 250));
-        registrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        registrar.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         registrar.setForeground(new java.awt.Color(255, 255, 255));
         registrar.setText("Registrar");
+        registrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         registrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registrarActionPerformed(evt);
@@ -121,15 +125,29 @@ public class Registro extends javax.swing.JFrame {
         jPanel1.add(registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 610, 120, 40));
 
         login.setBackground(new java.awt.Color(160, 30, 250));
-        login.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        login.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         login.setForeground(new java.awt.Color(255, 255, 255));
         login.setText("Login");
+        login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginActionPerformed(evt);
             }
         });
         jPanel1.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 700, 120, 40));
+
+        jLabel7.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel7.setText("Contraseña");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 480, 110, 40));
+
+        contra1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        contra1.setForeground(new java.awt.Color(160, 30, 250));
+        contra1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                contra1MousePressed(evt);
+            }
+        });
+        jPanel1.add(contra1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 550, 300, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -160,6 +178,7 @@ public class Registro extends javax.swing.JFrame {
 
     private void nombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombreMousePressed
         // TODO add your handling code here:
+        //vista previa usuario y contra
         if(nombre.getText().equals("email@dominio.es")){
             nombre.setText("");
         }
@@ -171,6 +190,7 @@ public class Registro extends javax.swing.JFrame {
 
     private void contraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contraMousePressed
         // TODO add your handling code here:
+        //vista previa usuario y contra
         if(String.valueOf(contra.getText()).equals("******")){
             contra.setText("");
         }
@@ -182,57 +202,27 @@ public class Registro extends javax.swing.JFrame {
 
     private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
         // TODO add your handling code here:
-        //obtener los datos del formulario
-        String nombreUsuario = nombre.getText();
-        String contrasena = contra.getText();
 
-        //crear una instancia del Usuarionuevo
-        UsuarioNue usuarioDAO = new UsuarioNue();
-
-        //intenta registrar el nuevo usuario
-        if (usuarioDAO.registrarUsuario(nombreUsuario, contrasena)) {
-            //registro exitoso
-            JOptionPane.showMessageDialog(null, "Usuario registrado correctamente!");
-        } else {
-            //hubo un error en el registro
-            JOptionPane.showMessageDialog(null, "Error al intentar iniciar sesión", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        
     }//GEN-LAST:event_registrarActionPerformed
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         // TODO add your handling code here:
+        //cambiar al login
         dispose(); 
         Login loginFrame = new Login();
         loginFrame.setVisible(true);
     }//GEN-LAST:event_loginActionPerformed
+
+    private void contra1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contra1MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contra1MousePressed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+        FlatMaterialPalenightIJTheme.setup();
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -245,11 +235,13 @@ public class Registro extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel barralogin;
     private javax.swing.JTextField contra;
+    private javax.swing.JTextField contra1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton login;
     private javax.swing.JTextField nombre;

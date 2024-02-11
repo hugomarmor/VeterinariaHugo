@@ -2,14 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package modelo;
+package modelo.entidades;
 
 /**
  *
- * @author Hugo Martín Morales DAM2B
+ * @author HUGO MARTÍN MORALES DAM2B
  */
 //@Entity
 public class Clientes {
+    //clase CLIENTES
     //@Id
     private int id_cliente;
 
@@ -19,7 +20,7 @@ public class Clientes {
     private String direccion;
     private String email;
 
-    // Getters y setters
+    //Getters y setters
     public int getId_cliente() {
         return id_cliente;
     }

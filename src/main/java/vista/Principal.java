@@ -4,17 +4,34 @@
  */
 package vista;
 
+import com.formdev.flatlaf.FlatClientProperties;
+import com.formdev.flatlaf.icons.FlatSearchIcon;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
+
 /**
  *
- * @author Equipo
+ * @author HUGO MARTÍN MORALES DAM2B DAM2B
  */
 public class Principal extends javax.swing.JFrame {
-
+    int xMouse, yMouse;
     /**
      * Creates new form Principal
      */
     public Principal() {
         initComponents();
+        //estilos flatlaf
+        apagar.putClientProperty( "JButton.buttonType", "roundRect" );
+        buscador.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Search" );
+        buscador.putClientProperty( FlatClientProperties.TEXT_FIELD_LEADING_ICON, new FlatSearchIcon());
+        
+        fbienvenida bienvenida = new fbienvenida();
+        bienvenida.setSize(1120, 677);
+        bienvenida.setLocation(0,0);
+        
+        frame.removeAll();
+        frame.add(bienvenida, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        frame.revalidate();
+        frame.repaint();
     }
 
     /**
@@ -26,48 +43,300 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
+        btbienvenida = new javax.swing.JButton();
+        btclientes = new javax.swing.JButton();
+        btmascotas = new javax.swing.JButton();
+        btcitas = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel2 = new javax.swing.JLabel();
+        apagar = new javax.swing.JButton();
+        barra = new javax.swing.JPanel();
+        fondoprin = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        buscador = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        frame = new javax.swing.JPanel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1366, 768));
+        setMinimumSize(new java.awt.Dimension(1366, 768));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1366, 768));
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(10, 45, 112));
+        jPanel1.setMaximumSize(new java.awt.Dimension(250, 768));
+        jPanel1.setMinimumSize(new java.awt.Dimension(250, 768));
+        jPanel1.setPreferredSize(new java.awt.Dimension(250, 768));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo1.png"))); // NOI18N
+
+        btbienvenida.setBackground(new java.awt.Color(10, 45, 112));
+        btbienvenida.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
+        btbienvenida.setForeground(new java.awt.Color(255, 255, 255));
+        btbienvenida.setText("Bienvenida");
+        btbienvenida.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btbienvenida.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btbienvenidaMouseClicked(evt);
+            }
+        });
+
+        btclientes.setBackground(new java.awt.Color(10, 45, 112));
+        btclientes.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
+        btclientes.setForeground(new java.awt.Color(255, 255, 255));
+        btclientes.setText("Clientes");
+        btclientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btclientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btclientesMouseClicked(evt);
+            }
+        });
+
+        btmascotas.setBackground(new java.awt.Color(10, 45, 112));
+        btmascotas.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
+        btmascotas.setForeground(new java.awt.Color(255, 255, 255));
+        btmascotas.setText("Mascotas");
+        btmascotas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        btcitas.setBackground(new java.awt.Color(10, 45, 112));
+        btcitas.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
+        btcitas.setForeground(new java.awt.Color(255, 255, 255));
+        btcitas.setText("Citas");
+        btcitas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel2.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Apagar el Sistema");
+
+        apagar.setBackground(new java.awt.Color(160, 30, 250));
+        apagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon-power.png"))); // NOI18N
+        apagar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        apagar.setMaximumSize(new java.awt.Dimension(35, 35));
+        apagar.setMinimumSize(new java.awt.Dimension(35, 35));
+        apagar.setPreferredSize(new java.awt.Dimension(35, 35));
+        apagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                apagarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btbienvenida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btclientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btmascotas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btcitas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jSeparator1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jSeparator2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(80, 80, 80)
+                                .addComponent(jLabel1))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(42, 42, 42)
+                                .addComponent(jLabel2)))
+                        .addGap(0, 37, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(104, 104, 104)
+                .addComponent(apagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btbienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btclientes, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btmascotas, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btcitas, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 228, Short.MAX_VALUE)
+                .addComponent(apagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(58, 58, 58))
         );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        barra.setBackground(new java.awt.Color(255, 255, 255));
+        barra.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                barraMouseDragged(evt);
+            }
+        });
+        barra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                barraMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout barraLayout = new javax.swing.GroupLayout(barra);
+        barra.setLayout(barraLayout);
+        barraLayout.setHorizontalGroup(
+            barraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1366, Short.MAX_VALUE)
+        );
+        barraLayout.setVerticalGroup(
+            barraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(barra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        fondoprin.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel3.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(44, 32, 174));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("VetMartín");
+        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        jLabel3.setMaximumSize(new java.awt.Dimension(241, 35));
+        jLabel3.setMinimumSize(new java.awt.Dimension(241, 35));
+        jLabel3.setPreferredSize(new java.awt.Dimension(241, 35));
+
+        buscador.setMaximumSize(new java.awt.Dimension(295, 35));
+        buscador.setMinimumSize(new java.awt.Dimension(295, 35));
+        buscador.setPreferredSize(new java.awt.Dimension(295, 35));
+
+        jButton5.setBackground(new java.awt.Color(160, 30, 250));
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Shape.png"))); // NOI18N
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton5.setMaximumSize(new java.awt.Dimension(41, 35));
+        jButton5.setMinimumSize(new java.awt.Dimension(41, 35));
+        jButton5.setPreferredSize(new java.awt.Dimension(41, 35));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Shape1.png"))); // NOI18N
+        jLabel4.setMaximumSize(new java.awt.Dimension(20, 20));
+        jLabel4.setMinimumSize(new java.awt.Dimension(20, 20));
+        jLabel4.setPreferredSize(new java.awt.Dimension(20, 20));
+
+        frame.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout frameLayout = new javax.swing.GroupLayout(frame);
+        frame.setLayout(frameLayout);
+        frameLayout.setHorizontalGroup(
+            frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        frameLayout.setVerticalGroup(
+            frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 677, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout fondoprinLayout = new javax.swing.GroupLayout(fondoprin);
+        fondoprin.setLayout(fondoprinLayout);
+        fondoprinLayout.setHorizontalGroup(
+            fondoprinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoprinLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(105, 105, 105)
+                .addComponent(buscador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(170, 170, 170)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(180, Short.MAX_VALUE))
+            .addComponent(frame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        fondoprinLayout.setVerticalGroup(
+            fondoprinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoprinLayout.createSequentialGroup()
+                .addGroup(fondoprinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondoprinLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(fondoprinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buscador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(fondoprinLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(frame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(fondoprin, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 1120, 740));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void apagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarActionPerformed
+        // TODO add your handling code here:
+        //apagar la aplicacion
+        System.exit(0);
+    }//GEN-LAST:event_apagarActionPerformed
+
+    private void barraMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_barraMouseDragged
+        // TODO add your handling code here:
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x-xMouse, y-yMouse);
+    }//GEN-LAST:event_barraMouseDragged
+
+    private void barraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_barraMousePressed
+        // TODO add your handling code here:
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_barraMousePressed
+
+    private void btbienvenidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btbienvenidaMouseClicked
+        // TODO add your handling code here:
+        //llamar al panel de bienvenida
+        fbienvenida bienvenida = new fbienvenida();
+        bienvenida.setSize(1120, 677);
+        bienvenida.setLocation(0,0);
+        
+        frame.removeAll();
+        frame.add(bienvenida, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        frame.revalidate();
+        frame.repaint();
+    }//GEN-LAST:event_btbienvenidaMouseClicked
+
+    private void btclientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btclientesMouseClicked
+        // TODO add your handling code here:
+        //llamar al panel de clientes
+        fclientes clientes = new fclientes();
+        clientes.setSize(1120, 677);
+        clientes.setLocation(0,0);
+        
+        frame.removeAll();
+        frame.add(clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        frame.revalidate();
+        frame.repaint();
+    }//GEN-LAST:event_btclientesMouseClicked
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+        FlatMaterialPalenightIJTheme.setup();
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -78,5 +347,22 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton apagar;
+    private javax.swing.JPanel barra;
+    private javax.swing.JButton btbienvenida;
+    private javax.swing.JButton btcitas;
+    private javax.swing.JButton btclientes;
+    private javax.swing.JButton btmascotas;
+    private javax.swing.JTextField buscador;
+    private javax.swing.JPanel fondoprin;
+    private javax.swing.JPanel frame;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
 }
