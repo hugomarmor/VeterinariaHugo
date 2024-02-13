@@ -22,7 +22,9 @@ import modelo.entidades.Citas;
 public class MysqlCitasDAO implements CitasDAO {
     //constantes de consultas
     public static final String SQL_CONSULTA_TODASCITAS = "select id_cita, id_mascotas, fecha_cita, hora_cita, motivo from citas order by id_cita";
-    public static final String SQL_INSERTAR_CITA = "INSERT INTO citas (id_cita, id_mascota, fecha_cita, hora_cita, motivo) VALUES (?,?,?,?,?)";
+    public static final String SQL_INSERTAR_CITA = "INSERT INTO citas (id_mascota, fecha_cita, hora_cita, motivo) VALUES (?,?,?,?)";
+    public static final String SQL_ELIMINAR_CITA = "DELETE FROM citas where id_cita=?";
+    
     @Override
     public List<Citas> obtenerCitasTodos() {
         List<Citas> reCitas = new ArrayList<>();
@@ -72,8 +74,40 @@ public class MysqlCitasDAO implements CitasDAO {
 
     @Override
     public int insertarCita(Citas unacita) {
-        //por si tengo que insertar alguna cita
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       int ret = 0;
+       
+        //consultar a la base de datos
+        MysqlDAOFactory factoria = new MysqlDAOFactory();
+        //conexion
+        Connection con = factoria.getConnection();
+        PreparedStatement pp = null;
+        try {
+            pp = con.prepareStatement(SQL_INSERTAR_CITA);
+
+            pp.setInt(1, unacita.getId_mascota());
+            pp.setDate(2, unacita.getFecha_cita());
+            pp.setTime(3, unacita.getHora_cita());
+            pp.setString(4, unacita.getMotivo());
+            //execute consulta
+            ret = pp.executeUpdate();
+          
+        } catch (SQLException ex) {
+            Logger.getLogger(MysqlUsuariosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                //close que hay que cerrar
+                if (con != null) {
+                    con.close();
+                }
+                if (pp != null) {
+                    pp.close();
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(MysqlUsuariosDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+       return ret;
     }
 
     @Override
@@ -84,8 +118,37 @@ public class MysqlCitasDAO implements CitasDAO {
 
     @Override
     public int eliminarCita(Citas unacita) {
-        //por si tengo que eliminar alguna cita
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+      int ret = 0;
+       
+        //consultar a la base de datos
+        MysqlDAOFactory factoria = new MysqlDAOFactory();
+        //conexion
+        Connection con = factoria.getConnection();
+        PreparedStatement pp = null;
+        try {
+            pp = con.prepareStatement(SQL_ELIMINAR_CITA);
+
+            pp.setInt(1, unacita.getId_cita());
+            //execute consulta
+            ret = pp.executeUpdate();
+          
+        } catch (SQLException ex) {
+            Logger.getLogger(MysqlUsuariosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                //close que hay que cerrar
+                if (con != null) {
+                    con.close();
+                }
+                if (pp != null) {
+                    pp.close();
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(MysqlUsuariosDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+       return ret;
     }
     
 }

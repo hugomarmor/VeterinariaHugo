@@ -15,6 +15,12 @@ public interface ClientesDAO {
     
     //obtener todos los clientes
     public List<Clientes> obtenerClientesTodos();
+    /**
+     * Obtiene datos del cliente concreto
+     * @param clienteFiltro tendrá relleno únicamente el atributo id del cliente a buscar
+     * @return bean con los datos rellenos
+     */
+    public Clientes obtenerCliente(Clientes clienteFiltro);
     //insertar un cliente
     public int insertarCliente(Clientes uncliente);
     //modificar un cliente

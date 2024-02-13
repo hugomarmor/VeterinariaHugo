@@ -6,7 +6,7 @@ package vista;
 
 /**
  *
- * @author Equipo
+ * @author HUGO MARTÍN MORALES DAM2B
  */
 public class fcitas extends javax.swing.JPanel {
 
@@ -26,19 +26,134 @@ public class fcitas extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablacitas = new javax.swing.JTable();
+        actualizarcit = new javax.swing.JButton();
+        insertarcit = new javax.swing.JButton();
+        modificarcit = new javax.swing.JButton();
+        eliminarcit = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        idcitacit = new javax.swing.JTextField();
+        idmascotacit = new javax.swing.JTextField();
+        fechacitacit = new javax.swing.JTextField();
+        horacitacit = new javax.swing.JTextField();
+        motivocit = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tablacitas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "id_cita", "id_mascota", "fecha_cita", "hora_cita", "motivo"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tablacitas);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 21, 1072, 221));
+
+        actualizarcit.setBackground(new java.awt.Color(160, 30, 250));
+        actualizarcit.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        actualizarcit.setForeground(new java.awt.Color(255, 255, 255));
+        actualizarcit.setText("Actualizar");
+        actualizarcit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(actualizarcit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 260, -1, -1));
+
+        insertarcit.setBackground(new java.awt.Color(160, 30, 250));
+        insertarcit.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        insertarcit.setForeground(new java.awt.Color(255, 255, 255));
+        insertarcit.setText("Insertar");
+        insertarcit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        insertarcit.setMaximumSize(new java.awt.Dimension(90, 29));
+        insertarcit.setMinimumSize(new java.awt.Dimension(90, 29));
+        insertarcit.setPreferredSize(new java.awt.Dimension(90, 29));
+        add(insertarcit, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 600, -1, -1));
+
+        modificarcit.setBackground(new java.awt.Color(160, 30, 250));
+        modificarcit.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        modificarcit.setForeground(new java.awt.Color(255, 255, 255));
+        modificarcit.setText("Modificar");
+        modificarcit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        modificarcit.setMaximumSize(new java.awt.Dimension(90, 29));
+        modificarcit.setMinimumSize(new java.awt.Dimension(90, 29));
+        modificarcit.setPreferredSize(new java.awt.Dimension(90, 29));
+        add(modificarcit, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 600, -1, -1));
+
+        eliminarcit.setBackground(new java.awt.Color(160, 30, 250));
+        eliminarcit.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        eliminarcit.setForeground(new java.awt.Color(255, 255, 255));
+        eliminarcit.setText("Eliminar");
+        eliminarcit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        eliminarcit.setMaximumSize(new java.awt.Dimension(90, 29));
+        eliminarcit.setMinimumSize(new java.awt.Dimension(90, 29));
+        eliminarcit.setPreferredSize(new java.awt.Dimension(90, 29));
+        add(eliminarcit, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 600, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel3.setText("Id Cita:");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 98, 49));
+
+        jLabel1.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel1.setText("Id Mascota:");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 98, 39));
+
+        jLabel4.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel4.setText("Fecha Cita:");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 110, 35));
+
+        jLabel5.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel5.setText("Hora Cita:");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 98, 35));
+
+        jLabel6.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel6.setText("Motivo:");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 98, 35));
+        add(idcitacit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 230, 40));
+        add(idmascotacit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 230, 40));
+        add(fechacitacit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 230, 40));
+        add(horacitacit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 420, 230, 40));
+        add(motivocit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 470, 230, 40));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/citavet (1).jpg"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, 590, 250));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton actualizarcit;
+    private javax.swing.JButton eliminarcit;
+    private javax.swing.JTextField fechacitacit;
+    private javax.swing.JTextField horacitacit;
+    private javax.swing.JTextField idcitacit;
+    private javax.swing.JTextField idmascotacit;
+    private javax.swing.JButton insertarcit;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton modificarcit;
+    private javax.swing.JTextField motivocit;
+    private javax.swing.JTable tablacitas;
     // End of variables declaration//GEN-END:variables
 }

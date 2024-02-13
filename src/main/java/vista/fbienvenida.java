@@ -6,7 +6,7 @@ package vista;
 
 /**
  *
- * @author Equipo
+ * @author HUGO MARTÍN MORALES DAM2B
  */
 public class fbienvenida extends javax.swing.JPanel {
 

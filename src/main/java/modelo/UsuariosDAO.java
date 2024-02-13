@@ -19,8 +19,10 @@ public interface UsuariosDAO {
     public Usuarios obtenerUsuario(Usuarios unusuario);
     //insertar un usuario
     public int insertarUsuario(Usuarios unusuario);
-    //modificar un usuario
-    public int modificarUsuario(Usuarios unusuario);
+    //modificar contraseña usuario
+    public int modificarContraseña(Usuarios unusuario);
     //eliminar un usuario
     public int eliminarUsuario(Usuarios unusuario);
+    //comprobar usuario
+    public Usuarios existeUsuario(Usuarios unusuario);
 }

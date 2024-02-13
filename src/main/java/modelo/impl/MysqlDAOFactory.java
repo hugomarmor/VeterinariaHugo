@@ -22,6 +22,20 @@ public class MysqlDAOFactory implements DAOFactory {
     private static final String USER = "root";
     private static final String PASSWORD = "";
     
+    	
+    // Singleton
+    private static MysqlDAOFactory instance;
+	
+    /**
+    * Return a singleton instance
+    */
+    public static synchronized MysqlDAOFactory getInstance() {
+        if (instance == null) {
+            instance = new MysqlDAOFactory();
+        }
+        return instance;
+    }
+    
     //obtener las implementaciones de las clases que consultan a la BBDD
     @Override
     public CitasDAO getCitasDAO() {
@@ -47,10 +61,13 @@ public class MysqlDAOFactory implements DAOFactory {
      * conexión a la base de datos
      * @return
      */
-    public Connection getConnection() {
+    public synchronized Connection getConnection() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            return DriverManager.getConnection(URL, USER, PASSWORD);
+            if (conexion == null) {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                return DriverManager.getConnection(URL, USER, PASSWORD);
+            }
+            return conexion;
         } catch (Exception e) {
             e.printStackTrace();
             return null;

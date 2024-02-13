@@ -22,6 +22,8 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        //al pulsar "enter"
+        getRootPane().setDefaultButton(acceder);
         controlador = new UsuariosControl();
     }
 
@@ -103,6 +105,7 @@ public class Login extends javax.swing.JFrame {
 
         nombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         nombre.setForeground(new java.awt.Color(160, 30, 250));
+        nombre.setToolTipText("Introduce el nombre de tu usuario");
         nombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 nombreMousePressed(evt);
@@ -112,6 +115,7 @@ public class Login extends javax.swing.JFrame {
 
         contra.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         contra.setForeground(new java.awt.Color(160, 30, 250));
+        contra.setToolTipText("Introduce la contraseña de tu usuario");
         contra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 contraMousePressed(evt);
@@ -123,7 +127,8 @@ public class Login extends javax.swing.JFrame {
         reccontra.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         reccontra.setForeground(new java.awt.Color(255, 255, 255));
         reccontra.setText("Rec.Contra");
-        reccontra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        reccontra.setToolTipText("Para recuperar la contraseña");
+        reccontra.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         reccontra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reccontraActionPerformed(evt);
@@ -138,7 +143,8 @@ public class Login extends javax.swing.JFrame {
         registro.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         registro.setForeground(new java.awt.Color(255, 255, 255));
         registro.setText("Registro");
-        registro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        registro.setToolTipText("Para registrate");
+        registro.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         registro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registroActionPerformed(evt);
@@ -150,7 +156,8 @@ public class Login extends javax.swing.JFrame {
         acceder.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         acceder.setForeground(new java.awt.Color(255, 255, 255));
         acceder.setText("Acceder");
-        acceder.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        acceder.setToolTipText("Iniciar sesion");
+        acceder.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         acceder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 accederActionPerformed(evt);

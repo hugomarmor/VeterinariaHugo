@@ -4,17 +4,75 @@
  */
 package vista;
 
+import controlador.ClientesControlador;
+import java.util.List;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
+import modelo.entidades.Clientes;
+
 /**
  *
- * @author Equipo
+ * @author HUGO MARTÍN MORALES DAM2B
  */
 public class fclientes extends javax.swing.JPanel {
+
+    private ClientesControlador controlador;
 
     /**
      * Creates new form fclientes
      */
     public fclientes() {
         initComponents();
+        controlador = new ClientesControlador();
+
+        cargarDatosTabla();
+
+        añadirListenerSeleccionTabla();
+    }
+
+    private void añadirListenerSeleccionTabla() {
+        //obtener el modelo de selección de la tabla
+        ListSelectionModel selectionModel = tablaclientes.getSelectionModel();
+
+        //agregar un ListSelectionListener al modelo de selección
+        selectionModel.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                //verificar si la selección ha cambiado y si hay una fila seleccionada
+                if (!e.getValueIsAdjusting() && tablaclientes.getSelectedRow() != -1) {
+                    //obtener el índice de la fila seleccionada
+                    int selectedRow = tablaclientes.getSelectedRow();
+                    idclientecli.setText("" + tablaclientes.getModel().getValueAt(selectedRow, 0));
+                    nombrecli.setText("" + tablaclientes.getModel().getValueAt(selectedRow, 1));
+                    apellidocli.setText("" + tablaclientes.getModel().getValueAt(selectedRow, 2));
+                    telefonocli.setText("" + tablaclientes.getModel().getValueAt(selectedRow, 3));
+                    direccioncli.setText("" + tablaclientes.getModel().getValueAt(selectedRow, 4));
+                    emailcli.setText("" + tablaclientes.getModel().getValueAt(selectedRow, 5));
+                }
+            }
+        });
+    }
+
+    private void cargarDatosTabla() {
+        List<Clientes> lista = controlador.obtenerListaClientes(null);
+        String[] columnas = new String[]{
+            "id_cliente", "nombre", "apellido", "telefono", "direccion", "email"
+        };
+        Object[][] datos = new Object[lista.size()][6];
+        int x = 0;
+        for (Clientes cliente : lista) {
+            datos[x][0] = cliente.getId_cliente();
+            datos[x][1] = cliente.getNombre();
+            datos[x][2] = cliente.getApellido();
+            datos[x][3] = cliente.getDireccion();
+            datos[x][4] = cliente.getTelefono();
+            datos[x][5] = cliente.getEmail();
+            x++;
+        }
+        DefaultTableModel model = new DefaultTableModel(datos, columnas);
+        tablaclientes.setModel(model);
     }
 
     /**
@@ -44,6 +102,7 @@ public class fclientes extends javax.swing.JPanel {
         eliminarcli = new javax.swing.JButton();
         insertarcli = new javax.swing.JButton();
         modificarcli = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(1120, 677));
@@ -78,14 +137,19 @@ public class fclientes extends javax.swing.JPanel {
         actualizarcli.setForeground(new java.awt.Color(255, 255, 255));
         actualizarcli.setText("Actualizar");
         actualizarcli.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        actualizarcli.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                actualizarcliMouseClicked(evt);
+            }
+        });
         add(actualizarcli, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 260, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
-        jLabel1.setText("Nombre");
+        jLabel1.setText("Nombre:");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 98, 39));
 
         jLabel2.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
-        jLabel2.setText("Email");
+        jLabel2.setText("Email:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, 98, 35));
 
         jLabel3.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
@@ -93,15 +157,15 @@ public class fclientes extends javax.swing.JPanel {
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 98, 49));
 
         jLabel4.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
-        jLabel4.setText("Apellido");
+        jLabel4.setText("Apellido:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 98, 35));
 
         jLabel5.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
-        jLabel5.setText("Telefono");
+        jLabel5.setText("Telefono:");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 98, 35));
 
         jLabel6.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
-        jLabel6.setText("Direccion");
+        jLabel6.setText("Direccion:");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 98, 35));
         add(emailcli, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 520, 230, 40));
         add(idclientecli, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 230, 40));
@@ -113,30 +177,122 @@ public class fclientes extends javax.swing.JPanel {
         eliminarcli.setBackground(new java.awt.Color(160, 30, 250));
         eliminarcli.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
         eliminarcli.setForeground(new java.awt.Color(255, 255, 255));
-        eliminarcli.setText("Insertar");
+        eliminarcli.setText("Eliminar");
+        eliminarcli.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         eliminarcli.setMaximumSize(new java.awt.Dimension(90, 29));
         eliminarcli.setMinimumSize(new java.awt.Dimension(90, 29));
         eliminarcli.setPreferredSize(new java.awt.Dimension(90, 29));
+        eliminarcli.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                eliminarcliMouseClicked(evt);
+            }
+        });
         add(eliminarcli, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 600, -1, -1));
 
         insertarcli.setBackground(new java.awt.Color(160, 30, 250));
         insertarcli.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
         insertarcli.setForeground(new java.awt.Color(255, 255, 255));
         insertarcli.setText("Insertar");
+        insertarcli.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         insertarcli.setMaximumSize(new java.awt.Dimension(90, 29));
         insertarcli.setMinimumSize(new java.awt.Dimension(90, 29));
         insertarcli.setPreferredSize(new java.awt.Dimension(90, 29));
+        insertarcli.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                insertarcliMouseClicked(evt);
+            }
+        });
         add(insertarcli, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 600, -1, -1));
 
         modificarcli.setBackground(new java.awt.Color(160, 30, 250));
         modificarcli.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
         modificarcli.setForeground(new java.awt.Color(255, 255, 255));
         modificarcli.setText("Modificar");
+        modificarcli.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         modificarcli.setMaximumSize(new java.awt.Dimension(90, 29));
         modificarcli.setMinimumSize(new java.awt.Dimension(90, 29));
         modificarcli.setPreferredSize(new java.awt.Dimension(90, 29));
+        modificarcli.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modificarcliMouseClicked(evt);
+            }
+        });
         add(modificarcli, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 600, -1, -1));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cliente_clinica_veterinaria (1).png"))); // NOI18N
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 570, 300));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void actualizarcliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_actualizarcliMouseClicked
+        // TODO add your handling code here:
+        cargarDatosTabla();
+    }//GEN-LAST:event_actualizarcliMouseClicked
+
+    private void insertarcliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_insertarcliMouseClicked
+        // TODO add your handling code here:
+        //comprueba los campos e inserta
+        if (!idclientecli.getText().isEmpty()
+                && !nombrecli.getText().isEmpty()
+                && !apellidocli.getText().isEmpty()
+                && !telefonocli.getText().isEmpty()
+                && !direccioncli.getText().isEmpty()
+                && !emailcli.getText().isEmpty()) {
+            controlador.crearCliente(idclientecli.getText(),
+                    nombrecli.getText(),
+                    apellidocli.getText(),
+                    telefonocli.getText(),
+                    direccioncli.getText(),
+                    emailcli.getText());
+            cargarDatosTabla();
+            idclientecli.setText("");
+            nombrecli.setText("");
+            apellidocli.setText("");
+            telefonocli.setText("");
+            direccioncli.setText("");
+            emailcli.setText("");
+        }
+
+    }//GEN-LAST:event_insertarcliMouseClicked
+
+    private void modificarcliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarcliMouseClicked
+        // TODO add your handling code here:
+        //comprueba los campos e inserta
+        if (!idclientecli.getText().isEmpty()
+                && !nombrecli.getText().isEmpty()
+                && !apellidocli.getText().isEmpty()
+                && !telefonocli.getText().isEmpty()
+                && !direccioncli.getText().isEmpty()
+                && !emailcli.getText().isEmpty()) {
+            controlador.modificarCliente(idclientecli.getText(),
+                    nombrecli.getText(),
+                    apellidocli.getText(),
+                    telefonocli.getText(),
+                    direccioncli.getText(),
+                    emailcli.getText());
+            cargarDatosTabla();
+            idclientecli.setText("");
+            nombrecli.setText("");
+            apellidocli.setText("");
+            telefonocli.setText("");
+            direccioncli.setText("");
+            emailcli.setText("");
+        }
+    }//GEN-LAST:event_modificarcliMouseClicked
+
+    private void eliminarcliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarcliMouseClicked
+        // TODO add your handling code here:
+        //comprueba los campos e inserta
+        if (!idclientecli.getText().isEmpty()) {
+            controlador.borrarCliente(idclientecli.getText());
+            cargarDatosTabla();
+            idclientecli.setText("");
+            nombrecli.setText("");
+            apellidocli.setText("");
+            telefonocli.setText("");
+            direccioncli.setText("");
+            emailcli.setText("");
+        }
+    }//GEN-LAST:event_eliminarcliMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -153,6 +309,7 @@ public class fclientes extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton modificarcli;
     private javax.swing.JTextField nombrecli;

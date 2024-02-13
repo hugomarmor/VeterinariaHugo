@@ -7,10 +7,11 @@ package vista;
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.icons.FlatSearchIcon;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
+import java.awt.Color;
 
 /**
  *
- * @author HUGO MARTÍN MORALES DAM2B DAM2B
+ * @author HUGO MARTÍN MORALES DAM2B
  */
 public class Principal extends javax.swing.JFrame {
     int xMouse, yMouse;
@@ -20,9 +21,9 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         initComponents();
         //estilos flatlaf
-        apagar.putClientProperty( "JButton.buttonType", "roundRect" );
-        buscador.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Search" );
-        buscador.putClientProperty( FlatClientProperties.TEXT_FIELD_LEADING_ICON, new FlatSearchIcon());
+        apagar.putClientProperty("JButton.buttonType", "roundRect");
+        buscador.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Search");
+        buscador.putClientProperty(FlatClientProperties.TEXT_FIELD_TRAILING_ICON, new FlatSearchIcon());
         
         fbienvenida bienvenida = new fbienvenida();
         bienvenida.setSize(1120, 677);
@@ -85,6 +86,12 @@ public class Principal extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btbienvenidaMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btbienvenidaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btbienvenidaMouseExited(evt);
+            }
         });
 
         btclientes.setBackground(new java.awt.Color(10, 45, 112));
@@ -96,6 +103,12 @@ public class Principal extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btclientesMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btclientesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btclientesMouseExited(evt);
+            }
         });
 
         btmascotas.setBackground(new java.awt.Color(10, 45, 112));
@@ -103,12 +116,34 @@ public class Principal extends javax.swing.JFrame {
         btmascotas.setForeground(new java.awt.Color(255, 255, 255));
         btmascotas.setText("Mascotas");
         btmascotas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btmascotas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btmascotasMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btmascotasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btmascotasMouseExited(evt);
+            }
+        });
 
         btcitas.setBackground(new java.awt.Color(10, 45, 112));
         btcitas.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
         btcitas.setForeground(new java.awt.Color(255, 255, 255));
         btcitas.setText("Citas");
         btcitas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btcitas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btcitasMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btcitasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btcitasMouseExited(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -136,12 +171,6 @@ public class Principal extends javax.swing.JFrame {
             .addComponent(btcitas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jSeparator1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jSeparator2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -150,7 +179,12 @@ public class Principal extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(42, 42, 42)
                                 .addComponent(jLabel2)))
-                        .addGap(0, 37, Short.MAX_VALUE)))
+                        .addGap(0, 37, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jSeparator2))))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(104, 104, 104)
@@ -331,13 +365,95 @@ public class Principal extends javax.swing.JFrame {
         frame.repaint();
     }//GEN-LAST:event_btclientesMouseClicked
 
+    private void btmascotasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btmascotasMouseClicked
+        // TODO add your handling code here:
+        //llamar al panel de mascotas
+        fmascotas mascotas = new fmascotas();
+        mascotas.setSize(1120, 677);
+        mascotas.setLocation(0,0);
+        
+        frame.removeAll();
+        frame.add(mascotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        frame.revalidate();
+        frame.repaint();
+    }//GEN-LAST:event_btmascotasMouseClicked
+
+    private void btcitasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btcitasMouseClicked
+        // TODO add your handling code here:
+        //llamar al panel de citas
+        fcitas citas = new fcitas();
+        citas.setSize(1120, 677);
+        citas.setLocation(0,0);
+        
+        frame.removeAll();
+        frame.add(citas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        frame.revalidate();
+        frame.repaint();
+    }//GEN-LAST:event_btcitasMouseClicked
+
+    private void btbienvenidaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btbienvenidaMouseEntered
+        // TODO add your handling code here:
+        //cuando pasa el mouse por el boton cambia de color
+        Color colorpersonalizado = new Color(160,30,250);
+        btbienvenida.setBackground(colorpersonalizado);
+    }//GEN-LAST:event_btbienvenidaMouseEntered
+
+    private void btbienvenidaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btbienvenidaMouseExited
+        // TODO add your handling code here:
+        //cuando quita el mouse del boton, cambia de color
+        Color colorpersonalizado = new Color(10,45,112);
+        btbienvenida.setBackground(colorpersonalizado);
+    }//GEN-LAST:event_btbienvenidaMouseExited
+
+    private void btclientesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btclientesMouseEntered
+        // TODO add your handling code here:
+        //cuando pasa el mouse por el boton cambia de color
+        Color colorpersonalizado = new Color(160,30,250);
+        btclientes.setBackground(colorpersonalizado);
+    }//GEN-LAST:event_btclientesMouseEntered
+
+    private void btclientesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btclientesMouseExited
+        // TODO add your handling code here:
+        //cuando quita el mouse del boton, cambia de color
+        Color colorpersonalizado = new Color(10,45,112);
+        btclientes.setBackground(colorpersonalizado);
+    }//GEN-LAST:event_btclientesMouseExited
+
+    private void btmascotasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btmascotasMouseEntered
+        // TODO add your handling code here:
+        //cuando pasa el mouse por el boton cambia de color
+        Color colorpersonalizado = new Color(160,30,250);
+        btmascotas.setBackground(colorpersonalizado);
+    }//GEN-LAST:event_btmascotasMouseEntered
+
+    private void btmascotasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btmascotasMouseExited
+        // TODO add your handling code here:
+        //cuando quita el mouse del boton, cambia de color
+        Color colorpersonalizado = new Color(10,45,112);
+        btmascotas.setBackground(colorpersonalizado);
+    }//GEN-LAST:event_btmascotasMouseExited
+
+    private void btcitasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btcitasMouseEntered
+        // TODO add your handling code here:
+        Color colorpersonalizado = new Color(160,30,250);
+        btcitas.setBackground(colorpersonalizado);
+    }//GEN-LAST:event_btcitasMouseEntered
+
+    private void btcitasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btcitasMouseExited
+        // TODO add your handling code here:
+        //cuando quita el mouse del boton, cambia de color
+        Color colorpersonalizado = new Color(10,45,112);
+        btcitas.setBackground(colorpersonalizado);
+    }//GEN-LAST:event_btcitasMouseExited
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         FlatMaterialPalenightIJTheme.setup();
-
+        
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

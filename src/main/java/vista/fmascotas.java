@@ -4,9 +4,12 @@
  */
 package vista;
 
+import java.time.format.DateTimeFormatter;
+import modelo.entidades.Mascotas;
+
 /**
  *
- * @author Equipo
+ * @author HUGO MARTÍN MORALES DAM2B
  */
 public class fmascotas extends javax.swing.JPanel {
 
@@ -15,6 +18,8 @@ public class fmascotas extends javax.swing.JPanel {
      */
     public fmascotas() {
         initComponents();
+        
+
     }
 
     /**
@@ -26,22 +31,157 @@ public class fmascotas extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTextField1 = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablamascotas = new javax.swing.JTable();
+        actualizarmas = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        fechanacimas = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        idclientemas = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        idtrabajadormas = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        nombremas = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        especiemas = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        emailcli = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        idmascotamas = new javax.swing.JTextField();
+        insertarmas = new javax.swing.JButton();
+        modificarmas = new javax.swing.JButton();
+        eliminarcli = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+
+        jTextField1.setText("jTextField1");
+
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(1120, 677));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1120, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 677, Short.MAX_VALUE)
-        );
+        tablamascotas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "id_mascota", "id_cliente", "id_trabajador", "nombre", "especie", "raza", "fecha_nacimiento"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tablamascotas);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 21, 1072, 221));
+
+        actualizarmas.setBackground(new java.awt.Color(160, 30, 250));
+        actualizarmas.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        actualizarmas.setForeground(new java.awt.Color(255, 255, 255));
+        actualizarmas.setText("Actualizar");
+        actualizarmas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(actualizarmas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 260, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel3.setText("Id Mascota:");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 98, 49));
+        add(fechanacimas, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 230, 40));
+
+        jLabel1.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel1.setText("Id Cliente:");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 98, 39));
+        add(idclientemas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 230, 40));
+
+        jLabel4.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel4.setText("Id Trabajador:");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 110, 35));
+        add(idtrabajadormas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 230, 40));
+
+        jLabel5.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel5.setText("Nombre:");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 98, 35));
+        add(nombremas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 420, 230, 40));
+
+        jLabel6.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel6.setText("Especie:");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 98, 35));
+        add(especiemas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 470, 230, 40));
+
+        jLabel2.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel2.setText("Fecha Nacimiento:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, 130, 35));
+        add(emailcli, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 520, 230, 40));
+
+        jLabel7.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel7.setText("Raza:");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, 98, 35));
+        add(idmascotamas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 230, 40));
+
+        insertarmas.setBackground(new java.awt.Color(160, 30, 250));
+        insertarmas.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        insertarmas.setForeground(new java.awt.Color(255, 255, 255));
+        insertarmas.setText("Insertar");
+        insertarmas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        insertarmas.setMaximumSize(new java.awt.Dimension(90, 29));
+        insertarmas.setMinimumSize(new java.awt.Dimension(90, 29));
+        insertarmas.setPreferredSize(new java.awt.Dimension(90, 29));
+        add(insertarmas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 600, -1, -1));
+
+        modificarmas.setBackground(new java.awt.Color(160, 30, 250));
+        modificarmas.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        modificarmas.setForeground(new java.awt.Color(255, 255, 255));
+        modificarmas.setText("Modificar");
+        modificarmas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        modificarmas.setMaximumSize(new java.awt.Dimension(90, 29));
+        modificarmas.setMinimumSize(new java.awt.Dimension(90, 29));
+        modificarmas.setPreferredSize(new java.awt.Dimension(90, 29));
+        add(modificarmas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 600, -1, -1));
+
+        eliminarcli.setBackground(new java.awt.Color(160, 30, 250));
+        eliminarcli.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        eliminarcli.setForeground(new java.awt.Color(255, 255, 255));
+        eliminarcli.setText("Eliminar");
+        eliminarcli.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        eliminarcli.setMaximumSize(new java.awt.Dimension(90, 29));
+        eliminarcli.setMinimumSize(new java.awt.Dimension(90, 29));
+        eliminarcli.setPreferredSize(new java.awt.Dimension(90, 29));
+        add(eliminarcli, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 600, -1, -1));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/mascotas (1).jpg"))); // NOI18N
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, 610, 310));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton actualizarmas;
+    private javax.swing.JButton eliminarcli;
+    private javax.swing.JTextField emailcli;
+    private javax.swing.JTextField especiemas;
+    private javax.swing.JTextField fechanacimas;
+    private javax.swing.JTextField idclientemas;
+    private javax.swing.JTextField idmascotamas;
+    private javax.swing.JTextField idtrabajadormas;
+    private javax.swing.JButton insertarmas;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton modificarmas;
+    private javax.swing.JTextField nombremas;
+    private javax.swing.JTable tablamascotas;
     // End of variables declaration//GEN-END:variables
 }

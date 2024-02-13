@@ -13,7 +13,9 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.MascotasDAO;
+import modelo.entidades.Clientes;
 import modelo.entidades.Mascotas;
+import modelo.entidades.Usuarios;
 
 /**
  *
@@ -42,8 +44,12 @@ public class MysqlMascotasDAO implements MascotasDAO {
             while (res.next()) {
                 Mascotas mascota = new Mascotas();
                 mascota.setId_mascota(res.getInt("id_mascota"));
-                //mascota.setId_cliente(res.getInt("id_cliente"));
-                //mascota.setId_trabajador(res.getInt("id_trabajador"));
+                Clientes cli = new Clientes();
+                cli.setId_cliente(res.getInt("id_cliente"));
+                mascota.setCliente(cli);
+                Usuarios usu = new Usuarios();
+                usu.setId_trabajador(res.getInt("id_trabajador"));
+                mascota.setTrabajador(usu);
                 mascota.setNombre(res.getString("nombre"));
                 mascota.setEspecie(res.getString("especie"));
                 mascota.setRaza(res.getString("raza"));

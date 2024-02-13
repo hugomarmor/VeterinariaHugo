@@ -5,20 +5,25 @@
 package vista;
 
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
-import java.security.SecureRandom;
-import java.util.Properties;
+import controlador.UsuariosControl;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author HUGO MARTÍN MORALES DAM2B DAM2B
  */
 public class Reccontra extends javax.swing.JFrame {
+    int xMouse, yMouse;
+    private UsuariosControl controlador;
 
     /**
      * Creates new form Reccontra
      */
     public Reccontra() {
         initComponents();
+        //al pulsar "enter"
+        getRootPane().setDefaultButton(mancorreo);
+        controlador = new UsuariosControl();
     }
 
     /**
@@ -38,6 +43,7 @@ public class Reccontra extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         correo = new javax.swing.JTextField();
         login = new javax.swing.JButton();
+        barralogin = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Recuperar contraseña");
@@ -61,6 +67,7 @@ public class Reccontra extends javax.swing.JFrame {
         mancorreo.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         mancorreo.setForeground(new java.awt.Color(255, 255, 255));
         mancorreo.setText("Correo");
+        mancorreo.setToolTipText("Para enviarte una nueva contraseña");
         mancorreo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mancorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,6 +82,7 @@ public class Reccontra extends javax.swing.JFrame {
 
         correo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         correo.setForeground(new java.awt.Color(160, 30, 250));
+        correo.setToolTipText("Tu correo para iniciar sesion");
         correo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 correoMousePressed(evt);
@@ -86,6 +94,7 @@ public class Reccontra extends javax.swing.JFrame {
         login.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         login.setForeground(new java.awt.Color(255, 255, 255));
         login.setText("Login");
+        login.setToolTipText("Para volver al Login");
         login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,18 +103,53 @@ public class Reccontra extends javax.swing.JFrame {
         });
         jPanel1.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 700, 120, 40));
 
+        barralogin.setBackground(new java.awt.Color(255, 255, 255));
+        barralogin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                barraloginMouseDragged(evt);
+            }
+        });
+        barralogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                barraloginMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout barraloginLayout = new javax.swing.GroupLayout(barralogin);
+        barralogin.setLayout(barraloginLayout);
+        barraloginLayout.setHorizontalGroup(
+            barraloginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1366, Short.MAX_VALUE)
+        );
+        barraloginLayout.setVerticalGroup(
+            barraloginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(barralogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 770));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void mancorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mancorreoActionPerformed
-       
+        if (correo.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Introduzca un correo valido");
+        } else {
+            controlador.enviarNuevaContraseña(correo.getText());
+            JOptionPane.showMessageDialog(null, "Se ha cambiado correctamente la contraseña");
+            dispose();
+            Login loginFrame = new Login();
+            loginFrame.setVisible(true);
+        }
     }//GEN-LAST:event_mancorreoActionPerformed
 
     private void correoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_correoMousePressed
         // TODO add your handling code here:
-       
+        if (correo.getText().isEmpty()) {
+            correo.setText("email@dominio.es");
+        }
     }//GEN-LAST:event_correoMousePressed
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
@@ -115,6 +159,19 @@ public class Reccontra extends javax.swing.JFrame {
         Login loginFrame = new Login();
         loginFrame.setVisible(true);
     }//GEN-LAST:event_loginActionPerformed
+
+    private void barraloginMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_barraloginMouseDragged
+        // TODO add your handling code here:
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x-xMouse, y-yMouse);
+    }//GEN-LAST:event_barraloginMouseDragged
+
+    private void barraloginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_barraloginMousePressed
+        // TODO add your handling code here:
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_barraloginMousePressed
 
     /**
      * @param args the command line arguments
@@ -132,6 +189,7 @@ public class Reccontra extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel barralogin;
     private javax.swing.JTextField correo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

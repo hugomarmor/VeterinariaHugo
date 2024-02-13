@@ -5,20 +5,26 @@
 package vista;
 
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
+import controlador.UsuariosControl;
 import javax.swing.JOptionPane;
-
 
 /**
  *
- * @author HUGO MARTÍN MORALES DAM2B DAM2B
+ * @author HUGO MARTÍN MORALES DAM2B
  */
 public class Registro extends javax.swing.JFrame {
+
     int xMouse, yMouse;
+    private UsuariosControl controlador;
+
     /**
      * Creates new form Registro
      */
     public Registro() {
         initComponents();
+        //al pulsar "enter"
+        getRootPane().setDefaultButton(registrar);
+        controlador = new UsuariosControl();
     }
 
     /**
@@ -43,6 +49,8 @@ public class Registro extends javax.swing.JFrame {
         login = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         contra1 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        correonuev = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registro");
@@ -87,17 +95,18 @@ public class Registro extends javax.swing.JFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 250, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
-        jLabel5.setText("Usuario Nuevo");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 420, 130, 30));
+        jLabel5.setText("Correo");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 430, 130, 30));
 
         nombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         nombre.setForeground(new java.awt.Color(160, 30, 250));
+        nombre.setToolTipText("Nombre usurio nuevo");
         nombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 nombreMousePressed(evt);
             }
         });
-        jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 410, 300, 40));
+        jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 370, 300, 40));
 
         jLabel6.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         jLabel6.setText("Rep. Contraseña");
@@ -105,17 +114,19 @@ public class Registro extends javax.swing.JFrame {
 
         contra.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         contra.setForeground(new java.awt.Color(160, 30, 250));
+        contra.setToolTipText("Tu contraseña");
         contra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 contraMousePressed(evt);
             }
         });
-        jPanel1.add(contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 480, 300, 40));
+        jPanel1.add(contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 490, 300, 40));
 
         registrar.setBackground(new java.awt.Color(160, 30, 250));
         registrar.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         registrar.setForeground(new java.awt.Color(255, 255, 255));
         registrar.setText("Registrar");
+        registrar.setToolTipText("Para registrarte");
         registrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         registrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,6 +139,7 @@ public class Registro extends javax.swing.JFrame {
         login.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         login.setForeground(new java.awt.Color(255, 255, 255));
         login.setText("Login");
+        login.setToolTipText("Para ir al Login");
         login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,12 +154,27 @@ public class Registro extends javax.swing.JFrame {
 
         contra1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         contra1.setForeground(new java.awt.Color(160, 30, 250));
+        contra1.setToolTipText("Repite tu contraseña");
         contra1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 contra1MousePressed(evt);
             }
         });
         jPanel1.add(contra1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 550, 300, 40));
+
+        jLabel8.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel8.setText("Usuario Nuevo");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 380, 130, 30));
+
+        correonuev.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        correonuev.setForeground(new java.awt.Color(160, 30, 250));
+        correonuev.setToolTipText("Tu correo");
+        correonuev.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                correonuevMousePressed(evt);
+            }
+        });
+        jPanel1.add(correonuev, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 430, 300, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -167,7 +194,7 @@ public class Registro extends javax.swing.JFrame {
         // TODO add your handling code here:
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
-        this.setLocation(x-xMouse, y-yMouse);
+        this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_barraloginMouseDragged
 
     private void barraloginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_barraloginMousePressed
@@ -179,36 +206,55 @@ public class Registro extends javax.swing.JFrame {
     private void nombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombreMousePressed
         // TODO add your handling code here:
         //vista previa usuario y contra
-        if(nombre.getText().equals("email@dominio.es")){
+        if (nombre.getText().equals("nombreusuario")) {
             nombre.setText("");
         }
 
-        if(String.valueOf(contra.getText()).isEmpty()){
+        if (String.valueOf(contra.getText()).isEmpty()) {
             contra.setText("******");
+        }
+
+        if (correonuev.getText().isEmpty()) {
+            correonuev.setText("example@dominio.com");
         }
     }//GEN-LAST:event_nombreMousePressed
 
     private void contraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contraMousePressed
         // TODO add your handling code here:
         //vista previa usuario y contra
-        if(String.valueOf(contra.getText()).equals("******")){
+        if (String.valueOf(contra.getText()).equals("******")) {
             contra.setText("");
         }
 
-        if(nombre.getText().isEmpty()){
-            nombre.setText("email@dominio.es");
+        if (nombre.getText().isEmpty()) {
+            nombre.setText("nombreusuario");
+        }
+
+        if (correonuev.getText().isEmpty()) {
+            correonuev.setText("example@dominio.com");
         }
     }//GEN-LAST:event_contraMousePressed
 
     private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
         // TODO add your handling code here:
-
+        //comprobar errorres y registro correcto
+        int resultado = controlador.registrarUsuario(nombre.getText(), contra.getText(), contra1.getText(), correonuev.getText());
+        if (resultado == UsuariosControl.ERROR_CONTRASEÑAS_NO_COINCIDEN) {
+            JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden");
+        } else if (resultado == UsuariosControl.ERROR_USUARIO_YA_EXISTE) {
+            JOptionPane.showMessageDialog(null, "El nombre de usuario ya existe");
+        } else if (resultado == UsuariosControl.REGISTRO_CORRECTO) {
+            JOptionPane.showMessageDialog(null, "Se ha registrado correctamente");
+            dispose();
+            Login loginFrame = new Login();
+            loginFrame.setVisible(true);
+        }
     }//GEN-LAST:event_registrarActionPerformed
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         // TODO add your handling code here:
         //cambiar al login
-        dispose(); 
+        dispose();
         Login loginFrame = new Login();
         loginFrame.setVisible(true);
     }//GEN-LAST:event_loginActionPerformed
@@ -216,6 +262,13 @@ public class Registro extends javax.swing.JFrame {
     private void contra1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contra1MousePressed
         // TODO add your handling code here:
     }//GEN-LAST:event_contra1MousePressed
+
+    private void correonuevMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_correonuevMousePressed
+        // TODO add your handling code here:
+        if (correonuev.getText().equals("example@dominio.com")) {
+            correonuev.setText("");
+        }
+    }//GEN-LAST:event_correonuevMousePressed
 
     /**
      * @param args the command line arguments
@@ -236,12 +289,14 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JPanel barralogin;
     private javax.swing.JTextField contra;
     private javax.swing.JTextField contra1;
+    private javax.swing.JTextField correonuev;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton login;
     private javax.swing.JTextField nombre;
