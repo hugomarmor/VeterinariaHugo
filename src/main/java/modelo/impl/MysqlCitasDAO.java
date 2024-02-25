@@ -25,6 +25,10 @@ public class MysqlCitasDAO implements CitasDAO {
     public static final String SQL_INSERTAR_CITA = "INSERT INTO citas (id_mascota, fecha_cita, hora_cita, motivo) VALUES (?,?,?,?)";
     public static final String SQL_ELIMINAR_CITA = "DELETE FROM citas where id_cita=?";
     
+    /**
+     * Obtener todas las citas
+     * @return 
+     */
     @Override
     public List<Citas> obtenerCitasTodos() {
         List<Citas> reCitas = new ArrayList<>();
@@ -71,7 +75,12 @@ public class MysqlCitasDAO implements CitasDAO {
 
         return reCitas;
     }
-
+    
+    /**
+     * para insertar una cita
+     * @param unacita parametro para una cita
+     * @return 
+     */
     @Override
     public int insertarCita(Citas unacita) {
        int ret = 0;
@@ -109,13 +118,23 @@ public class MysqlCitasDAO implements CitasDAO {
         
        return ret;
     }
-
+    
+    /**
+     * para modificar una cita
+     * @param unacita
+     * @return 
+     */
     @Override
     public int modificarCita(Citas unacita) {
         //por si tengo que modificar alguna cita
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
+    
+    /**
+     * para eliminar una cita
+     * @param unacita
+     * @return 
+     */
     @Override
     public int eliminarCita(Citas unacita) {
       int ret = 0;

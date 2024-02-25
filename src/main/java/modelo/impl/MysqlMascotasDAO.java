@@ -25,7 +25,11 @@ public class MysqlMascotasDAO implements MascotasDAO {
     //constantes de consultas
     public static final String SQL_CONSULTA_TODASMASCOTAS = "select id_mascota, id_cliente, id_trabajador, nombre, especie, raza, fecha_nacimiento from mascotas order by id_mascota";
     public static final String SQL_INSERTAR_MASCOTA = "INSERT INTO citas (id_mascota, id_cliente, id_trabajador, nombre, especie, raza, fecha_nacimiento) VALUES (?,?,?,?,?,?,?)";
-
+    
+    /**
+     * obtener mascotas
+     * @return 
+     */
     @Override
     public List<Mascotas> obtenerMascotasTodos() {
         List<Mascotas> reMascotas = new ArrayList<>();
@@ -78,19 +82,34 @@ public class MysqlMascotasDAO implements MascotasDAO {
 
         return reMascotas;
     }
-
+    
+    /**
+     * insertar mascota
+     * @param unamascota
+     * @return 
+     */
     @Override
     public int insertarMascota(Mascotas unamascota) {
         //por si tengo que insertar alguna mascota
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
+    
+    /**
+     * modifcar una mascota
+     * @param unamascota
+     * @return 
+     */
     @Override
     public int modificarMascota(Mascotas unamascota) {
         //por si tengo que modificar alguna mascota
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
+    
+    /**
+     * eliminar una mascota
+     * @param unamascota
+     * @return 
+     */
     @Override
     public int eliminarMascota(Mascotas unamascota) {
         //por si tengo que eliminar alguna mascota

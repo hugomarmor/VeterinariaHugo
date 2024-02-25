@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author HUGO MARTÍN MORALES DAM2B DAM2B
+ * @author HUGO MARTÍN MORALES DAM2B
  */
 public class Reccontra extends javax.swing.JFrame {
     int xMouse, yMouse;

@@ -28,7 +28,6 @@ public class fcitas extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tablacitas = new javax.swing.JTable();
-        actualizarcit = new javax.swing.JButton();
         insertarcit = new javax.swing.JButton();
         modificarcit = new javax.swing.JButton();
         eliminarcit = new javax.swing.JButton();
@@ -70,13 +69,6 @@ public class fcitas extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 21, 1072, 221));
 
-        actualizarcit.setBackground(new java.awt.Color(160, 30, 250));
-        actualizarcit.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
-        actualizarcit.setForeground(new java.awt.Color(255, 255, 255));
-        actualizarcit.setText("Actualizar");
-        actualizarcit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        add(actualizarcit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 260, -1, -1));
-
         insertarcit.setBackground(new java.awt.Color(160, 30, 250));
         insertarcit.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
         insertarcit.setForeground(new java.awt.Color(255, 255, 255));
@@ -109,36 +101,35 @@ public class fcitas extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         jLabel3.setText("Id Cita:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 98, 49));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 98, 49));
 
         jLabel1.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         jLabel1.setText("Id Mascota:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 98, 39));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 98, 39));
 
         jLabel4.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         jLabel4.setText("Fecha Cita:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 110, 35));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 90, 35));
 
         jLabel5.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         jLabel5.setText("Hora Cita:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 98, 35));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 90, 35));
 
         jLabel6.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         jLabel6.setText("Motivo:");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 98, 35));
-        add(idcitacit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 230, 40));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 90, 35));
+        add(idcitacit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 230, 40));
         add(idmascotacit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 230, 40));
         add(fechacitacit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 230, 40));
         add(horacitacit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 420, 230, 40));
         add(motivocit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 470, 230, 40));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/citavet (1).jpg"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, 590, 250));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, 590, 250));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton actualizarcit;
     private javax.swing.JButton eliminarcit;
     private javax.swing.JTextField fechacitacit;
     private javax.swing.JTextField horacitacit;

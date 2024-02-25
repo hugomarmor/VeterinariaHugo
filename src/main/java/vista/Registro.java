@@ -44,13 +44,13 @@ public class Registro extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         nombre = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        contra = new javax.swing.JTextField();
         registrar = new javax.swing.JButton();
         login = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        contra1 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         correonuev = new javax.swing.JTextField();
+        contra = new javax.swing.JPasswordField();
+        contra1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registro");
@@ -112,16 +112,6 @@ public class Registro extends javax.swing.JFrame {
         jLabel6.setText("Rep. Contraseña");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 550, 150, 40));
 
-        contra.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        contra.setForeground(new java.awt.Color(160, 30, 250));
-        contra.setToolTipText("Tu contraseña");
-        contra.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                contraMousePressed(evt);
-            }
-        });
-        jPanel1.add(contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 490, 300, 40));
-
         registrar.setBackground(new java.awt.Color(160, 30, 250));
         registrar.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         registrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -152,16 +142,6 @@ public class Registro extends javax.swing.JFrame {
         jLabel7.setText("Contraseña");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 480, 110, 40));
 
-        contra1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        contra1.setForeground(new java.awt.Color(160, 30, 250));
-        contra1.setToolTipText("Repite tu contraseña");
-        contra1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                contra1MousePressed(evt);
-            }
-        });
-        jPanel1.add(contra1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 550, 300, 40));
-
         jLabel8.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         jLabel8.setText("Usuario Nuevo");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 380, 130, 30));
@@ -175,6 +155,16 @@ public class Registro extends javax.swing.JFrame {
             }
         });
         jPanel1.add(correonuev, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 430, 300, 40));
+
+        contra.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        contra.setForeground(new java.awt.Color(160, 30, 250));
+        contra.setToolTipText("Introduce la contraseña que quieras");
+        jPanel1.add(contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 490, 300, 40));
+
+        contra1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        contra1.setForeground(new java.awt.Color(160, 30, 250));
+        contra1.setToolTipText("Repite la contraseña");
+        jPanel1.add(contra1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 550, 300, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -211,29 +201,13 @@ public class Registro extends javax.swing.JFrame {
         }
 
         if (String.valueOf(contra.getText()).isEmpty()) {
-            contra.setText("******");
+            contra.setText("*******");
         }
 
         if (correonuev.getText().isEmpty()) {
             correonuev.setText("example@dominio.com");
         }
     }//GEN-LAST:event_nombreMousePressed
-
-    private void contraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contraMousePressed
-        // TODO add your handling code here:
-        //vista previa usuario y contra
-        if (String.valueOf(contra.getText()).equals("******")) {
-            contra.setText("");
-        }
-
-        if (nombre.getText().isEmpty()) {
-            nombre.setText("nombreusuario");
-        }
-
-        if (correonuev.getText().isEmpty()) {
-            correonuev.setText("example@dominio.com");
-        }
-    }//GEN-LAST:event_contraMousePressed
 
     private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
         // TODO add your handling code here:
@@ -259,10 +233,6 @@ public class Registro extends javax.swing.JFrame {
         loginFrame.setVisible(true);
     }//GEN-LAST:event_loginActionPerformed
 
-    private void contra1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contra1MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_contra1MousePressed
-
     private void correonuevMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_correonuevMousePressed
         // TODO add your handling code here:
         if (correonuev.getText().equals("example@dominio.com")) {
@@ -287,8 +257,8 @@ public class Registro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel barralogin;
-    private javax.swing.JTextField contra;
-    private javax.swing.JTextField contra1;
+    private javax.swing.JPasswordField contra;
+    private javax.swing.JPasswordField contra1;
     private javax.swing.JTextField correonuev;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -7,13 +7,16 @@ package vista;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialPalenightIJTheme;
 import controlador.UsuariosControl;
 import java.awt.Color;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author HUGO MARTÍN MORALES DAM2B DAM2B
+ * @author HUGO MARTÍN MORALES DAM2B
  */
 public class Login extends javax.swing.JFrame {
+
     int xMouse, yMouse;
     private UsuariosControl controlador;
 
@@ -39,17 +42,15 @@ public class Login extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         barralogin = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jSeparator3 = new javax.swing.JSeparator();
         nombre = new javax.swing.JTextField();
-        contra = new javax.swing.JTextField();
         reccontra = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         registro = new javax.swing.JButton();
         acceder = new javax.swing.JButton();
+        contra = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
@@ -69,7 +70,6 @@ public class Login extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe Script", 1, 18)); // NOI18N
         jLabel6.setText("Contraseña");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 550, 120, 40));
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 590, 300, 10));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -101,7 +101,6 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 30, -1, -1));
-        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 450, 300, 10));
 
         nombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         nombre.setForeground(new java.awt.Color(160, 30, 250));
@@ -113,28 +112,18 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 410, 300, 40));
 
-        contra.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        contra.setForeground(new java.awt.Color(160, 30, 250));
-        contra.setToolTipText("Introduce la contraseña de tu usuario");
-        contra.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                contraMousePressed(evt);
-            }
-        });
-        jPanel1.add(contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 550, 300, 40));
-
         reccontra.setBackground(new java.awt.Color(160, 30, 250));
         reccontra.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         reccontra.setForeground(new java.awt.Color(255, 255, 255));
         reccontra.setText("Rec.Contra");
         reccontra.setToolTipText("Para recuperar la contraseña");
-        reccontra.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        reccontra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         reccontra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reccontraActionPerformed(evt);
             }
         });
-        jPanel1.add(reccontra, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 700, 130, 40));
+        jPanel1.add(reccontra, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 700, 140, 40));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/nombrejpg.jpg"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 250, -1, -1));
@@ -144,7 +133,7 @@ public class Login extends javax.swing.JFrame {
         registro.setForeground(new java.awt.Color(255, 255, 255));
         registro.setText("Registro");
         registro.setToolTipText("Para registrate");
-        registro.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        registro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         registro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registroActionPerformed(evt);
@@ -157,13 +146,18 @@ public class Login extends javax.swing.JFrame {
         acceder.setForeground(new java.awt.Color(255, 255, 255));
         acceder.setText("Acceder");
         acceder.setToolTipText("Iniciar sesion");
-        acceder.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        acceder.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         acceder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 accederActionPerformed(evt);
             }
         });
         jPanel1.add(acceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 610, 120, 40));
+
+        contra.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        contra.setForeground(new java.awt.Color(160, 30, 250));
+        contra.setToolTipText("Introduce la contraseña del usuario");
+        jPanel1.add(contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 540, 300, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -180,33 +174,20 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
-        this.setLocation(x-xMouse, y-yMouse);
+        this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_barraloginMouseDragged
 
     private void nombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombreMousePressed
         // TODO add your handling code here:
         //vista previa usuario y contra
-        if(nombre.getText().equals("nombreusuario")){
+        if (nombre.getText().equals("nombreusuario")) {
             nombre.setText("");
         }
-        
-        if(String.valueOf(contra.getText()).isEmpty()){
-            contra.setText("******");
+
+        if (String.valueOf(contra.getPassword()).isEmpty()) {
+            contra.setText("*******");
         }
     }//GEN-LAST:event_nombreMousePressed
-
-    private void contraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contraMousePressed
-        // TODO add your handling code here:
-        //vista previa usuario y contra
-        if(String.valueOf(contra.getText()).equals("******")){
-            contra.setText("");
-        }
-        
-        if(nombre.getText().isEmpty()){
-            nombre.setText("nombreusuario");
-        }
-        
-    }//GEN-LAST:event_contraMousePressed
 
     private void reccontraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reccontraActionPerformed
         //acceder al recuperar contraseña
@@ -226,14 +207,17 @@ public class Login extends javax.swing.JFrame {
     private void accederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accederActionPerformed
         // TODO add your handling code here:
         //comprobar si el acceso es correcto
-        boolean acceso = controlador.accederLogin(nombre.getText(), contra.getText());
+        char[] passwordChars = contra.getPassword();
+        String password = new String(passwordChars);
+
+        boolean acceso = controlador.accederLogin(nombre.getText(), password);
         if (acceso) {
             dispose();
             //abre la pantalla principal
             Principal principalFrame = new Principal();
             principalFrame.setVisible(true);
         } else {
-            JOptionPane.showMessageDialog(null, "Usuario o contraseña erronea");
+            JOptionPane.showMessageDialog(null, "Usuario o contraseña errónea");
         }
     }//GEN-LAST:event_accederActionPerformed
 
@@ -255,15 +239,13 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton acceder;
     private javax.swing.JPanel barralogin;
-    private javax.swing.JTextField contra;
+    private javax.swing.JPasswordField contra;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTextField nombre;
     private javax.swing.JButton reccontra;
     private javax.swing.JButton registro;

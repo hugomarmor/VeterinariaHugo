@@ -91,7 +91,10 @@ public class UsuariosControl {
 
         return retorno;
     }
-
+    /**
+     * para enviar un correo al usuario con la nueva contraseña
+     * @param correo 
+     */
     public void enviarNuevaContraseña(String correo) {
         // TODO add your handling code here:
         //contraseña aleatoria de 4 cifras
@@ -150,7 +153,14 @@ public class UsuariosControl {
         sendEmail(session, toEmail, "Recuperacion contraseña VetMartin", "Tu nueva contraseña es la siguiente: " + contraseña);
 
     }
-
+    
+    /**
+     * segunda parte para enviar el email
+     * @param session sesion
+     * @param toEmail email al que enviar
+     * @param subject
+     * @param body cuerpo utf-8
+     */
     private void sendEmail(Session session, String toEmail, String subject, String body) {
         try {
 
@@ -158,7 +168,7 @@ public class UsuariosControl {
             msg.addHeader("Content-type", "text/HTML; charset=UTF-8");
             msg.addHeader("format", "flowed");
             msg.addHeader("Content-Transfer-Encoding", "8bit");
-            msg.setFrom(new InternetAddress("hugomartinmorales729@gmail.com", "NoReply-JD"));
+            msg.setFrom(new InternetAddress("hugomartinmorales729@gmail.com", "VetMartín"));
             msg.setReplyTo(InternetAddress.parse("hugomartinmorales729@gmail.com", false));
             msg.setSubject(body, "UTF-8");
             msg.setText(body, "UTF-8");

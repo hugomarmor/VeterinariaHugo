@@ -34,7 +34,6 @@ public class fmascotas extends javax.swing.JPanel {
         jTextField1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablamascotas = new javax.swing.JTable();
-        actualizarmas = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         fechanacimas = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -83,47 +82,40 @@ public class fmascotas extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 21, 1072, 221));
 
-        actualizarmas.setBackground(new java.awt.Color(160, 30, 250));
-        actualizarmas.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
-        actualizarmas.setForeground(new java.awt.Color(255, 255, 255));
-        actualizarmas.setText("Actualizar");
-        actualizarmas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        add(actualizarmas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 260, -1, -1));
-
         jLabel3.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         jLabel3.setText("Id Mascota:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 98, 49));
-        add(fechanacimas, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 230, 40));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 90, 49));
+        add(fechanacimas, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 230, 40));
 
         jLabel1.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         jLabel1.setText("Id Cliente:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 98, 39));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 90, 39));
         add(idclientemas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 230, 40));
 
         jLabel4.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         jLabel4.setText("Id Trabajador:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 110, 35));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 100, 35));
         add(idtrabajadormas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 230, 40));
 
         jLabel5.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         jLabel5.setText("Nombre:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 98, 35));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 80, 35));
         add(nombremas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 420, 230, 40));
 
         jLabel6.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         jLabel6.setText("Especie:");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 98, 35));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 90, 35));
         add(especiemas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 470, 230, 40));
 
         jLabel2.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         jLabel2.setText("Fecha Nacimiento:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, 130, 35));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, 130, 35));
         add(emailcli, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 520, 230, 40));
 
         jLabel7.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         jLabel7.setText("Raza:");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, 98, 35));
-        add(idmascotamas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 230, 40));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, 90, 35));
+        add(idmascotamas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 230, 40));
 
         insertarmas.setBackground(new java.awt.Color(160, 30, 250));
         insertarmas.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
@@ -161,7 +153,6 @@ public class fmascotas extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton actualizarmas;
     private javax.swing.JButton eliminarcli;
     private javax.swing.JTextField emailcli;
     private javax.swing.JTextField especiemas;

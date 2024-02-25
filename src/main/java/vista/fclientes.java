@@ -86,7 +86,6 @@ public class fclientes extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaclientes = new javax.swing.JTable();
-        actualizarcli = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -132,18 +131,6 @@ public class fclientes extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 21, 1072, 221));
 
-        actualizarcli.setBackground(new java.awt.Color(160, 30, 250));
-        actualizarcli.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
-        actualizarcli.setForeground(new java.awt.Color(255, 255, 255));
-        actualizarcli.setText("Actualizar");
-        actualizarcli.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        actualizarcli.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                actualizarcliMouseClicked(evt);
-            }
-        });
-        add(actualizarcli, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 260, -1, -1));
-
         jLabel1.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         jLabel1.setText("Nombre:");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 98, 39));
@@ -154,7 +141,7 @@ public class fclientes extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         jLabel3.setText("Id Cliente:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 98, 49));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 98, 49));
 
         jLabel4.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         jLabel4.setText("Apellido:");
@@ -168,7 +155,7 @@ public class fclientes extends javax.swing.JPanel {
         jLabel6.setText("Direccion:");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 98, 35));
         add(emailcli, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 520, 230, 40));
-        add(idclientecli, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 230, 40));
+        add(idclientecli, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 230, 40));
         add(nombrecli, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 230, 40));
         add(apellidocli, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 230, 40));
         add(telefonocli, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 420, 230, 40));
@@ -220,13 +207,8 @@ public class fclientes extends javax.swing.JPanel {
         add(modificarcli, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 600, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cliente_clinica_veterinaria (1).png"))); // NOI18N
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 570, 300));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 570, 300));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void actualizarcliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_actualizarcliMouseClicked
-        // TODO add your handling code here:
-        cargarDatosTabla();
-    }//GEN-LAST:event_actualizarcliMouseClicked
 
     private void insertarcliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_insertarcliMouseClicked
         // TODO add your handling code here:
@@ -296,7 +278,6 @@ public class fclientes extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton actualizarcli;
     private javax.swing.JTextField apellidocli;
     private javax.swing.JTextField direccioncli;
     private javax.swing.JButton eliminarcli;

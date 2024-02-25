@@ -28,13 +28,22 @@ public class MysqlUsuariosDAO implements UsuariosDAO {
     public static final String SQL_INSERTAR_USUARIO = "INSERT INTO usuarios (nombre_trabajador, contraseña, email_trabajador, rol) VALUES (?,md5(?),?,?)";
     public static final String SQL_CONSULTA_USUARIO_EXISTE = "select id_trabajador, nombre_trabajador, contraseña, email_trabajador, rol from usuarios where nombre_trabajador=?";
     public static final String SQL_MODIFICAR_CONTRASEÑA = "UPDATE usuarios SET contraseña = md5(?) where email_trabajador=?";
-
+    
+    /**
+     * obtener todos los usuarios
+     * @return 
+     */
     @Override
     public List<Usuarios> obtenerUsuariosTodos() {
         //por si tengo que consultar todos los veterinarios
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
+    
+    /**
+     * obtener un usuario
+     * @param unusuario
+     * @return 
+     */
     @Override
     public Usuarios obtenerUsuario(Usuarios unusuario) {
         Usuarios reUsuarios = null;
@@ -83,6 +92,11 @@ public class MysqlUsuariosDAO implements UsuariosDAO {
         return reUsuarios;
     }
     
+    /**
+     * comprobar si existe un usuario
+     * @param unusuario
+     * @return 
+     */
     @Override
     public Usuarios existeUsuario(Usuarios unusuario) {
         Usuarios reUsuarios = null;
@@ -129,7 +143,12 @@ public class MysqlUsuariosDAO implements UsuariosDAO {
 
         return reUsuarios;
     }
-
+    
+    /**
+     * insertar un usuario
+     * @param unusuario
+     * @return 
+     */
     @Override
     public int insertarUsuario(Usuarios unusuario) {
         int ret = 0;
@@ -167,7 +186,12 @@ public class MysqlUsuariosDAO implements UsuariosDAO {
         
        return ret;
     }
-
+    
+    /**
+     * modificar un usuario
+     * @param unusuario
+     * @return 
+     */
     @Override
     public int modificarContraseña(Usuarios unusuario) {
         int ret = 0;
@@ -204,7 +228,12 @@ public class MysqlUsuariosDAO implements UsuariosDAO {
         
        return ret;
     }
-
+    
+    /**
+     * eliminar un usuario
+     * @param unusuario
+     * @return 
+     */
     @Override
     public int eliminarUsuario(Usuarios unusuario) {
         //por si tengo que eliminar algun veterinario

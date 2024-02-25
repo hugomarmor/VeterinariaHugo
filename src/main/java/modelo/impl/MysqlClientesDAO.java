@@ -26,7 +26,11 @@ public class MysqlClientesDAO implements ClientesDAO {
     public static final String SQL_INSERTAR_CLIENTE = "INSERT INTO clientes (id_cliente, nombre, apellido, telefono, direccion, email) VALUES (?,?,?,?,?,?)";
     public static final String SQL_UPDATE_CLIENTE = "UPDATE clientes SET nombre = ?, apellido=?, telefono=?, direccion=?, email=? where id_cliente=?";
     public static final String SQL_DELETE_CLIENTE = "DELETE FROM clientes where id_cliente=?";
-
+    
+    /**
+     * para obtener todos los clientes
+     * @return 
+     */
     @Override
     public List<Clientes> obtenerClientesTodos() {
         List<Clientes> reClientes = new ArrayList<>();
@@ -74,7 +78,12 @@ public class MysqlClientesDAO implements ClientesDAO {
 
         return reClientes;
     }
-
+    
+    /**
+     * para insertar un cliente
+     * @param uncliente
+     * @return 
+     */
     @Override
     public int insertarCliente(Clientes uncliente) {
         int ret = 0;
@@ -114,7 +123,12 @@ public class MysqlClientesDAO implements ClientesDAO {
         
        return ret;
     }
-
+    
+    /**
+     * para modifciar un cliente
+     * @param uncliente
+     * @return 
+     */
     @Override
     public int modificarCliente(Clientes uncliente) {
         int ret = 0;
@@ -154,7 +168,12 @@ public class MysqlClientesDAO implements ClientesDAO {
         
        return ret;
     }
-
+    
+    /**
+     * para eliminar un cliente
+     * @param uncliente
+     * @return 
+     */
     @Override
     public int eliminarCliente(Clientes uncliente) {
         int ret = 0;
@@ -189,7 +208,12 @@ public class MysqlClientesDAO implements ClientesDAO {
         
        return ret;
     }
-
+    
+    /**
+     * para obtener un cliente
+     * @param clienteFiltro
+     * @return 
+     */
     @Override
     public Clientes obtenerCliente(Clientes clienteFiltro) {
         Clientes ret = null;
